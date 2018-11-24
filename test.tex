@@ -1,0 +1,76 @@
+\documentclass[12pt]{article}
+
+\usepackage{xltxtra, setspace}
+
+%% fonts
+
+% xeCJK options from &lt;http://mesokosmos.blogger.de/stories/1818274/&gt;:
+\usepackage[%
+  boldfont,
+  CJKnumber,
+  CJKchecksingle
+]{xeCJK}
+
+% main font for CJK input from &lt;http://www.fontpark.net/en/font/kozuka-gothic-pro-m/&gt;
+\setCJKmainfont[Script=CJK]{Yu Mincho}
+% \setCJKmainfont[Script=CJK]{Kozuka Mincho Pro}
+
+% version of the above font with rotated characters for vertical text,
+%  font needs to come with ``vrt2'' feature
+\setCJKfamilyfont{cjk-vert}[Script=CJK,RawFeature=vertical]{Yu Mincho}
+% \setCJKfamilyfont{cjk-vert}[Script=CJK,RawFeature=vertical]{Kozuka Mincho Pro}
+
+% main font for non-CJK input from &lt;http://www.exljbris.com/delicious.html&gt;
+
+%% Furigana
+
+% use \ruby{kanji}{kana} to set Furigana
+\usepackage[CJK,overlap]{ruby}
+% position of Furigana: below/right
+\renewcommand{\rubysep}{-4.3ex}
+% increase line space for Furigana
+\onehalfspacing
+
+%% alignment
+
+% also from &lt;http://mesokosmos.blogger.de/stories/1818274/&gt;:
+\XeTeXlinebreaklocale &quot;ja&quot;
+\XeTeXlinebreakskip=0em plus 0.1em minus 0.01em
+% we also drop paragraph indentation in order to get proper alignment
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\section*{Regular English Text}
+
+This is \textbf{English} text and should be \textit{set} in Delicious
+(or \textsc{Delicious SmallCaps}).
+
+\section*{Regular Japanese Text}
+
+きのう、ラースは　\ruby{山}{やま}\ruby{本}{もと}を　あいました。　
+「こんにちは、\ruby{山}{やま}\ruby{本}{もと}さん。おげんき　ですか。」
+
+Note the nice alignment of the letters, in spite of the 「」 brackets.
+(Some combinations of punctuation might break the alignment, though.)
+
+\section*{Vertical Japanese Text}
+
+\begin{figure}[h!]
+\begin{center}
+\rotatebox{-90}{
+\begin{minipage}{0.35\textwidth}
+\CJKfamily{cjk-vert}
+\onehalfspacing % needs to be repeated here (?!)
+きのう、\textbf{ラース}は　\ruby{山}{やま}\ruby{本}{もと}を　あいました。 
+「こんにちは、\ruby{山}{やま}\ruby{本}{もと}さん。おげんき　ですか。」
+\end{minipage}
+}
+\end{center}
+\end{figure}
+
+That's quite a nice alignment of the letters, in spite of the 「」 brackets
+and the (artificially created) bold letters. (Some combinations of punctuation
+might break the alignment, though.)
+
+\end{document}
