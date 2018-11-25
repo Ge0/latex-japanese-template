@@ -1,0 +1,60 @@
+\documentclass[12pt]{memoir}
+
+\usepackage{xltxtra, setspace}
+%\usepackage{indentfirst}
+
+%% fonts
+
+% xeCJK options from &lt;http://mesokosmos.blogger.de/stories/1818274/&gt;:
+\usepackage[%
+  boldfont,
+  CJKnumber,
+  CJKchecksingle
+]{xeCJK}
+
+% main font for CJK input from &lt;http://www.fontpark.net/en/font/kozuka-gothic-pro-m/&gt;
+\setCJKmainfont[Script=CJK]{Yu Mincho}
+% \setCJKmainfont[Script=CJK]{Kozuka Mincho Pro}
+
+% version of the above font with rotated characters for vertical text,
+%  font needs to come with ``vrt2'' feature
+\setCJKfamilyfont{cjk-vert}[Script=CJK,RawFeature=vertical]{Yu Mincho}
+% \setCJKfamilyfont{cjk-vert}[Script=CJK,RawFeature=vertical]{Kozuka Mincho Pro}
+
+% main font for non-CJK input from &lt;http://www.exljbris.com/delicious.html&gt;
+
+%% Furigana
+
+% use \ruby{kanji}{kana} to set Furigana
+\usepackage[CJK,overlap]{ruby}
+% position of Furigana: below/right
+\renewcommand{\rubysep}{-3.4ex}
+% increase line space for Furigana
+% \onehalfspacing
+
+\renewcommand{\baselinestretch}{1.1}
+
+\setlength{\parskip}{1em}
+%% alignment
+\catcode13=\catcode`\% % ignore newlines (don't want space there)
+
+% also from &lt;http://mesokosmos.blogger.de/stories/1818274/&gt;:
+\XeTeXlinebreaklocale &quot;ja&quot;
+\XeTeXlinebreakskip=0.7em plus 0.1em minus 0.01em
+% we also drop paragraph indentation in order to get proper alignment
+\setlength{\parindent}{0em}
+\catcode`\　=\catcode32 % treat ideographic space as a normal space
+
+\begin{document}
+
+\chapter{プロローグ}
+
+　新選組には、\ruby{武士}{ぶし}がある。みんな魚を食べるのが好きです。せれに、近
+藤勇や\ruby{土方歳三}{ひじかたとしぞう}や沖田総司がよく魚食べて刀で人斬りを切る
+。
+
+
+\par
+　それは、変です。
+
+\end{document}
