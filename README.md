@@ -1,5 +1,7 @@
 # Japanese LaTeX template
 
+From https://nablux.net/tgp/weblog/2013/03/22/how-typeset-japanese-using-xelatex/
+
 This repo is an exploration on how to produce high quality japanese document
 through LaTeX.
 
